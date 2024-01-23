@@ -1,10 +1,13 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import Layout from "../Layout";
+import Layout from "./Layout/Layout";
 import Home from "./pages/Home";
 import BugDetails from "./pages/BugDetails";
 import PageNotFound from "./pages/PageNotFound";
+import AllBugs from "./pages/AllBugs";
+import BugsMe from "./pages/BugsMe";
+import Archive from "./pages/Archive";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -17,8 +20,20 @@ export default function App() {
         element: <Home/>
       },
       {
-        path:'/bug/:id',
+        path: '/bugs',
+        element: <AllBugs/>
+      },
+      {
+        path:'/bugs/:id',
         element: <BugDetails/>
+      },
+      {
+        path:'/me',
+        element: <BugsMe/>
+      },
+      {
+        path:'/archive',
+        element: <Archive/>
       }
     ]
   }
