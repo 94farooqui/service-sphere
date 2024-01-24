@@ -2,7 +2,7 @@ import React from 'react'
 
 const BugHeader = ({bug}) => {
   return (
-    <div className='bg-white p-8 rounded-lg grid grid-cols-1 gap-4'>
+    <div className='bg-white p-8 rounded-lg grid grid-cols-1 gap-4 shadow-sm'>
         <h4 className="text-xl font-semibold  text-slate-800">{bug.name}</h4>
         <p>{bug.description}</p>
         <div className='grid grid-cols-2 gap-4 mt-2'>

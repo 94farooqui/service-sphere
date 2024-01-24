@@ -32,7 +32,29 @@ export const bugs = [
       dateResolved: new Date("2022-01-20"),
       project: "Project A",
       assignee: "Developer 1",
-      status:"Pending"
+      status:"Pending",
+      comms: [
+        {
+          user:"Rahul Dravid",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"Sachin Tendulkar",
+          msg: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"Saurav Ganuly",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"MS Dhoni",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        }
+      ]
     },
     {
       _id:2,
@@ -44,7 +66,29 @@ export const bugs = [
       dateResolved: new Date("2022-02-18"),
       project: "Project B",
       assignee: "Developer 2",
-      status:"Pending"
+      status:"Pending",
+      comms: [
+        {
+          user:"Rahul Dravid",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"Sachin Tendulkar",
+          msg: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"Saurav Ganuly",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"MS Dhoni",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        }
+      ]
     },
     {
       _id:3,
@@ -56,7 +100,29 @@ export const bugs = [
       dateResolved: new Date("2022-03-12"),
       project: "Project C",
       assignee: "Developer 3",
-      status:"Pending"
+      status:"Pending",
+      comms: [
+        {
+          user:"Rahul Dravid",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"Sachin Tendulkar",
+          msg: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"Saurav Ganuly",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"MS Dhoni",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        }
+      ]
     },
     {
       _id:4,
@@ -68,7 +134,29 @@ export const bugs = [
       dateResolved: new Date("2022-04-25"),
       project: "Project D",
       assignee: "Developer 4",
-      status:"Pending"
+      status:"Pending",
+      comms: [
+        {
+          user:"Rahul Dravid",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"Sachin Tendulkar",
+          msg: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"Saurav Ganuly",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"MS Dhoni",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        }
+      ]
     },
     {
       _id:5,
@@ -80,7 +168,62 @@ export const bugs = [
       dateResolved: new Date("2022-05-18"),
       project: "Project E",
       assignee: "Developer 5",
-      status:"Pending"
+      status:"Pending",
+      comms: [
+        {
+          user:"Rahul Dravid",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"Sachin Tendulkar",
+          msg: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"Saurav Ganuly",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        },
+        {
+          user:"MS Dhoni",
+          msg:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
+          time: new Date("2024-02-18")
+        }
+      ]
     },
     // Add more bug objects as needed
   ];
+
+  export const dashboardTiles = [
+    {
+      label:"New bugs",
+      value : 42,
+      fromColor: '#D6EAF8',
+      toColor:'#5DADE2'
+    },
+    {
+      label:"Open bugs",
+      value : 26,
+      fromColor: '#D6EAF8',
+      toColor:'#5DADE2'
+    },
+    {
+      label:"Closed bugs",
+      value : 16,
+      fromColor: '#D6EAF8',
+      toColor:'#5DADE2'
+    },
+    {
+      label:"Pending for review",
+      value : 36,
+      fromColor: '#D6EAF8',
+      toColor:'#5DADE2'
+    },
+    {
+      label:"Projects",
+      value : 12,
+      fromColor: '#D6EAF8',
+      toColor:'#5DADE2'
+    }
+  ]

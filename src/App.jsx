@@ -8,8 +8,12 @@ import PageNotFound from "./pages/PageNotFound";
 import AllBugs from "./pages/AllBugs";
 import BugsMe from "./pages/BugsMe";
 import Archive from "./pages/Archive";
+import { useContext } from "react";
+import HeaderContext from "./context/HeaderContext";
+import { HeaderContextProvider } from "./context/HeaderContext";
 
 export default function App() {
+
   const router = createBrowserRouter([
     {
     element : <Layout/>,
@@ -39,6 +43,8 @@ export default function App() {
   }
 ])
   return (
-    <RouterProvider router={router} />
+    <HeaderContextProvider>
+      <RouterProvider router={router} />
+    </HeaderContextProvider>
   )
 }
