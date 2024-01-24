@@ -13,11 +13,7 @@ const AllBugs = () => {
     <div className=" p-8  grid grid-cols-1 gap-4">
       {bugs.map((bug) => (
         <BugSmallCard
-          _id={bug._id}
-          bug_id={bug.bug_id}
-          name={bug.name}
-          dateCreated={bug.dateCreated}
-          status={bug.status}
+          bug={bug}
         />
       ))}
     </div>

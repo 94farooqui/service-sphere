@@ -11,6 +11,7 @@ import Archive from "./pages/Archive";
 import { useContext } from "react";
 import HeaderContext from "./context/HeaderContext";
 import { HeaderContextProvider } from "./context/HeaderContext";
+import NewBug from "./pages/NewBug";
 
 export default function App() {
 
@@ -38,6 +39,10 @@ export default function App() {
       {
         path:'/archive',
         element: <Archive/>
+      },
+      {
+        path:'/new-bug',
+        element: <NewBug/>
       }
     ]
   }

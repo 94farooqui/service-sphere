@@ -66,7 +66,7 @@ export const bugs = [
       dateResolved: new Date("2022-02-18"),
       project: "Project B",
       assignee: "Developer 2",
-      status:"Pending",
+      status:"Open",
       comms: [
         {
           user:"Rahul Dravid",
@@ -134,7 +134,7 @@ export const bugs = [
       dateResolved: new Date("2022-04-25"),
       project: "Project D",
       assignee: "Developer 4",
-      status:"Pending",
+      status:"Resolved",
       comms: [
         {
           user:"Rahul Dravid",
@@ -225,5 +225,24 @@ export const bugs = [
       value : 12,
       fromColor: '#D6EAF8',
       toColor:'#5DADE2'
+    }
+  ]
+
+  export const statusColors = [
+    {
+      status:"Pending",
+      color:"fde047"
+    },
+    {
+      status:"Open",
+      color:"fca5a5"
+    },
+    {
+      status:"Resolved",
+      color:"86efac"
+    },
+    {
+      status:"New",
+      color:"4f46e5"
     }
   ]
