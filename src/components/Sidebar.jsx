@@ -5,11 +5,12 @@ import SidebarTab from '../shared/SidebarTab'
 const Sidebar = () => {
   //console.log(sidebar)
   return (
-    <div className='h-screen max-h-screen w-[220px] max-w-[220px] overflow-hidden fixed left-0 top-0 bg-slate-900 flex justify-center'>
+    <div className='h-screen max-h-screen bg-slate-900 flex flex-col items-center sticky top-0 left-0 z-20'>
+        <h1 className='text-white font-bold my-4 text-2xl italic '>Service Sphere</h1>
         <div className='flex flex-col gap-2  py-4 px-6'>
         {sidebar.map(tab => <SidebarTab key={tab.label} label={tab.label} iconUrl={tab.iconUrl} routeUrl={tab.routeUrl} />)}
-        {/* {sidebar.map(tab => console.log(tab))} */}
         </div>
+        <button onClick={()=>setOpen(!open)} className='rounded-full bg-slate-900 border border-black w-6 h-6 absolute top-12 -right-3 z-20'><img src='/assets/arrow.svg' className='w-6 h-6  invert' /></button>
     </div>
   )
 }

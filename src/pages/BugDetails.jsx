@@ -1,12 +1,19 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import {bugs} from './../../data'
+import BugDetailsCard from '../components/BugDetailsCard';
 
 const BugDetails = () => {
     const params = useParams();
-    const id = params.id
+    const id = parseInt(params.id)
+    const bug = bugs.find(bug => bug._id === id)
+
+    if(!bug) return null;
 
   return (
-    <div>Bug {id} Details</div>
+    <div className=''>
+      <BugDetailsCard bug={bug} />
+    </div>
   )
 }
 

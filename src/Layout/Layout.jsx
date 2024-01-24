@@ -1,25 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 
 const Layout = () => {
+  const [open,setOpen] = useState(false)
   return (
-    <>
-      <Sidebar/>
-      <div className='w-screen '>
-        <nav className="pl-[220px]">
-          <Navbar/>
-        </nav>
-        
-        <div className='xl:w-[1140px] lg:w-[932px] md:w-[708px] sm:w-[516px] max-w-[1080px] mx-auto flex flex-col'>
-        
-        <main>
-          <Outlet/>
-        </main>
-        </div>
+    <div className={`relative h-screen w-screen grid grid-cols-[240px_auto] grid-rows-[60px_auto]`}>
+      <div className=" row-start-1 row-end-3 col-start-1 col-end-2 relative">
+        <Sidebar/>
       </div>
-    </>
+      <div className="row-start-1 row-end-2 col-start-2 col-end-3 sticky top-0 left-0 z-10">
+        <Navbar/>
+      </div>
+      <div className="row-start-2 row-end-3 col-start-2 col-end-3 bg-slate-200">
+        <Outlet/>
+      </div>
+    </div>
   );
 };
 
