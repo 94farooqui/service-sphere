@@ -12,12 +12,12 @@ const BugSmallCard = ({ bug }) => {
     <>
       <NavLink to={`/bugs/${_id}`}>
         <div
-          key={_id}
+          
           className="p-4 bg-gray-100 border shadow-md rounded-md grid grid-cols-1 gap-2"
         >
           <div className="flex justify-between items-center text-xs text-gray-400">
             <div className="flex items-center gap-2">
-              <p className="font-bold text-slate-500">{bug_id}</p>
+              <p className="font-bold text-slate-500">BG-{bug_id}</p>
               <p
                 className={`px-2 py-0.5 rounded-full text-slate-600 font-semibold text-xs`}
                 style={{backgroundColor: statusColorHex}}
@@ -25,7 +25,7 @@ const BugSmallCard = ({ bug }) => {
                 {status}
               </p>
             </div>
-            <p className="">{dateCreated.toLocaleString()}</p>
+            <p className="">{dateCreated && dateCreated.toLocaleString()}</p>
           </div>
           <p className="text-sm font-semibold text-gray-700">{name}</p>
           <p className="text-xs text-slate-600 truncate">{description}</p>

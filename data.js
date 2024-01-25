@@ -243,6 +243,6 @@ export const bugs = [
     },
     {
       status:"New",
-      color:"4f46e5"
+      color:"AED6F1"
     }
   ]
