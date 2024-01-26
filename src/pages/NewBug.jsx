@@ -35,7 +35,7 @@ const bug = () => {
     const added = await addingBug(bug);
     if(added){
         setBug(initialBugValues)
-        navigate('/')
+        navigate('/bugs')
     }
   };
   return (
@@ -82,12 +82,21 @@ const bug = () => {
               ))}
             </select>
           </div>
+          <div className="self-end flex gap-2 mt-4">
+          <button
+            className="bg-red-400 text-white font-semibold self-end px-4 py-2 rounded-md"
+            onClick={()=>{history.goBack()}}
+          >
+            Cancel
+          </button>
           <button
             type="submit"
             className="bg-gray-900 text-white font-semibold self-end px-4 py-2 rounded-md"
           >
             Submit
           </button>
+          </div>
+          
         </form>
       </div>
     </div>

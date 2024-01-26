@@ -28,10 +28,24 @@ export const addingBug = async (bug) => {
     
 }
 
-export const gettingAllBugs = async () => {
+export const getAllBugs = async () => {
     try{
         const response = await axios.get(`${serverUrl}/bugs`);
         if(response.status === 200){
+            return response.data
+        }
+    }
+    catch(error){
+        console.log("Something went wrong", error)
+    }
+}
+
+export const getBug = async (id) => {
+    //console.log("ID:",id)
+    try{
+        const response = await axios.get(`${serverUrl}/bugs/${id}`);
+        if(response.status === 200){
+           console.log(response)
             return response.data
         }
     }

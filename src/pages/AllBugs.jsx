@@ -2,14 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { bugs } from "./../../data";
 import BugSmallCard from "../components/Bugs/BugSmallCard";
 import HeaderContext from "../context/HeaderContext";
-import { gettingAllBugs } from "../helpers/bugHelper";
+import { getAllBugs } from "../helpers/bugHelper";
 
 const AllBugs = () => {
     const {headerText,setHeaderText} = useContext(HeaderContext)
     const [allBugs,setAllBugs] = useState([])
 
     const getBugs = async () => {
-      const data = await gettingAllBugs();
+      const data = await getAllBugs();
       //console.log(data)
       setAllBugs(data)
     }

@@ -1,13 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {statusColors} from './../../../data'
+import getStatusColor from "../../utilities/getStatusColors";
+
 
 const BugSmallCard = ({ bug }) => {
   //console.log(dateCreated)
   const { _id, bug_id, name, dateCreated, status, description } = bug;
-  const statusColorString = statusColors.find(color => color.status === status)
-  const statusColorNumber = parseInt(statusColorString.color, 16)
-  const statusColorHex = '#'+statusColorNumber.toString(16)
+  const statusColor = getStatusColor(status)
+
   return (
     <>
       <NavLink to={`/bugs/${_id}`}>
@@ -20,7 +20,7 @@ const BugSmallCard = ({ bug }) => {
               <p className="font-bold text-slate-500">BG-{bug_id}</p>
               <p
                 className={`px-2 py-0.5 rounded-full text-slate-600 font-semibold text-xs`}
-                style={{backgroundColor: statusColorHex}}
+                style={{backgroundColor: statusColor}}
               >
                 {status}
               </p>

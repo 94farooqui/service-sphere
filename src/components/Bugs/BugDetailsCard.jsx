@@ -7,6 +7,7 @@ import BugPropertiesCard from "./BugPropertiesCard";
 import BugConversations from "./BugConversations";
 
 const BugDetailsCard = ({ bug }) => {
+  //console.log(bug)
   return (
     <div className="grid grid-cols-[auto_280px] gap-4">
       
@@ -14,7 +15,7 @@ const BugDetailsCard = ({ bug }) => {
         <BugHeader bug={bug} />
         <div>
             <h4 className="text-xl font-bold text-slate-700 mb-2">Conversations</h4>
-            <BugConversations comms={bug.comms} />
+            {bug.comms.length > 0 ? <BugConversations comms={bug.comms} /> : <p>No comments</p>}
         </div>
         
       </div>
