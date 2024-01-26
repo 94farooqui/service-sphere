@@ -35,7 +35,7 @@ const bug = () => {
     const added = await addingBug(bug);
     if(added){
         setBug(initialBugValues)
-        navigate('/bugs')
+        navigate(-1)
     }
   };
   return (
@@ -85,7 +85,7 @@ const bug = () => {
           <div className="self-end flex gap-2 mt-4">
           <button
             className="bg-red-400 text-white font-semibold self-end px-4 py-2 rounded-md"
-            onClick={()=>{history.goBack()}}
+            onClick={()=>navigate(-1)}
           >
             Cancel
           </button>
