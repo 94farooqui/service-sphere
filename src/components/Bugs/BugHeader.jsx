@@ -16,7 +16,7 @@ const BugHeader = ({bug}) => {
             </div>
             <div className="flex flex-col">
                 <h4 className='font-semibold text'>Requester</h4>
-                <p>{bug.author.firstname}</p>
+                <p>{bug.author.firtname}</p>
             </div>
             <div className="flex flex-col">
                 <h4 className='font-semibold text'>Date</h4>

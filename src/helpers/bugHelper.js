@@ -41,7 +41,7 @@ export const getAllBugs = async () => {
 }
 
 export const getBug = async (id) => {
-    //console.log("ID:",id)
+    console.log("ID:",id)
     try{
         const response = await axios.get(`${serverUrl}/bugs/${id}`);
         if(response.status === 200){
