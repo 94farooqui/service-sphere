@@ -8,16 +8,15 @@ export const addingBug = async (bug) => {
     // project:"Project C"
 
     const newBug = {...bug, 
-        author:"65b2796ad8aaf6838183f8c5", 
-        project: "65b27b5baaf0968e5f4f7982",
-        dateResolved: '',
-        assignee:"65b2796ad8aaf6838183f8c5",
+        author:"65b4f35b66ad17ffc3f38da6", 
+        project: "65b4f40766ad17ffc3f38daa",
+        assignee:"65b4f35b66ad17ffc3f38da6",
         status: "Open",
     }
     try{
         const response = await axios.post(`${serverUrl}/bugs`, newBug)
         if(response.status === 200){
-            console.log(response)
+            //console.log(response)
             return true
         }
     }
@@ -41,15 +40,19 @@ export const getAllBugs = async () => {
 }
 
 export const getBug = async (id) => {
-    console.log("ID:",id)
+    //console.log("ID:",id)
     try{
         const response = await axios.get(`${serverUrl}/bugs/${id}`);
         if(response.status === 200){
-           console.log(response)
+           //console.log(response)
             return response.data
         }
     }
     catch(error){
         console.log("Something went wrong", error)
     }
+}
+
+export const updateBug = async (id) => {
+
 }

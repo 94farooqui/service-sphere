@@ -8,8 +8,6 @@ const initialBugValues = {
   name: "",
   description: "",
   author: "",
-  dateCreated: "",
-  dateResolved: null,
   project: "",
   assignee: "",
   status: "",
