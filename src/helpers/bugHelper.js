@@ -8,9 +8,9 @@ export const addingBug = async (bug) => {
     // project:"Project C"
 
     const newBug = {...bug, 
-        author:"65b4f35b66ad17ffc3f38da6", 
-        project: "65b4f40766ad17ffc3f38daa",
-        assignee:"65b4f35b66ad17ffc3f38da6",
+        author:"65b65e949e09feee22f9bee8", 
+        project: "65b65f0f9e09feee22f9beec",
+        assignee:"65b65e949e09feee22f9bee8",
         status: "Open",
     }
     try{
