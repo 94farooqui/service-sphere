@@ -30,7 +30,7 @@ const BugConversations = ({ bug }) => {
     gettingAllComments(bug._id);
   }, [allComments]);
   return (
-    <div>
+    <div className="">
       <div className="flex justify-between">
         <h4 className="text-xl font-bold text-slate-700 mb-2">Conversations</h4>
         <button

@@ -246,3 +246,53 @@ export const bugs = [
       color:"AED6F1"
     }
   ]
+
+  export const statusValues = [
+    {
+      label:"New",
+      value:"New"
+    },
+    {
+      label:"Open",
+      value:"Open"
+    },
+    {
+      label:"Pending",
+      value:"Pending"
+    },
+    {
+      label:"Close",
+      value:"Close"
+    }
+  ]
+
+  export const users = [
+    {
+      name: "Virender Sehwag",
+      email : "sehwag@india.com"
+    },
+    {
+      name:"Sachin Tendulkar",
+      email: "sachin@india.com"
+    },
+    {
+      name:"Saurav Ganguly",
+      email: "saurav@india.com"
+    },
+    {
+      name:"Rahul Dravid",
+      email: "dravid@india.com"
+    },
+    {
+      name:"Yuvraj Singh",
+      email: "yuvraj@india.com"
+    },
+    {
+      name:"Mahendra Singh",
+      email: "dhoni@india.com"
+    },
+    {
+      name:"Suresh Raina",
+      email: "raina@india.com"
+    }
+  ]

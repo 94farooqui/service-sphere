@@ -5,7 +5,7 @@ import SidebarTab from '../shared/SidebarTab'
 const Sidebar = () => {
   //console.log(sidebar)
   return (
-    <div className='h-screen max-h-screen bg-gray-900 flex flex-col sticky top-0 left-0 z-20'>
+    <div className='h-full max-h-screen bg-gray-900 flex flex-col sticky top-0 left-0 z-20 '>
         <h1 className='text-white font-bold my-4 text-2xl italic text-center'>Service Sphere</h1>
         <div className='flex flex-col gap-2  py-4 px-4'>
         {sidebar.map(tab => <SidebarTab key={tab.label} label={tab.label} iconUrl={tab.iconUrl} routeUrl={tab.routeUrl} />)}
