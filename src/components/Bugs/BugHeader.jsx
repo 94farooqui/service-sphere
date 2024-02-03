@@ -12,7 +12,7 @@ const BugHeader = ({bug}) => {
         
         
         <div className='flex flex-col gap-2 text-sm'>
-        <p>Created by {bug.author.firtname} on {bug.dateCreated.toLocaleString()}</p>
+        <p>Created by {bug.author.firstname} on {bug.dateCreated.toLocaleString()}</p>
        
         
             <div className="grid grid-cols-2">

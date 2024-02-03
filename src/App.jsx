@@ -12,6 +12,10 @@ import { useContext } from "react";
 import HeaderContext from "./context/HeaderContext";
 import { HeaderContextProvider } from "./context/HeaderContext";
 import NewBug from "./pages/NewBug";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import AuthLayout from "./Layout/AuthLayout";
+import Profile from "./pages/Profile";
 
 export default function App() {
 
@@ -23,6 +27,10 @@ export default function App() {
       {
         path: '/',
         element: <Home/>
+      },
+      {
+        path:'/profile/:id',
+        element: <Profile/>
       },
       {
         path: '/bugs',
@@ -45,6 +53,18 @@ export default function App() {
         element: <NewBug/>
       }
     ]
+  },{
+    element: <AuthLayout/>,
+    children: [
+    {
+      path:'/login',
+      element: <Login/>
+    },
+    {
+      path:'/signup',
+      element: <Signup/>
+    }
+  ]
   }
 ])
   return (
