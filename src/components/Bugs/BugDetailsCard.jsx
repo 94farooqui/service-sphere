@@ -13,9 +13,9 @@ const BugDetailsCard = ({ bug }) => {
       
       <div className=" flex flex-col gap-8 p-4 ">
         <BugHeader bug={bug} />
-        <div>
-          <h2 className="text-xl font-bold text-slate-700 mb-2">Description</h2>
-          <p  className="bg-white rounded-md p-4">{bug.description}</p>
+        <div className=" rounded-lg">
+          <h2 className="section-head">Description</h2>
+          <p  className="bg-white rounded-md drop-shadow-sm border border-slate-200 p-4">{bug.description}</p>
         </div>
         <BugConversations bug={bug}/> 
       </div>

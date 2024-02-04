@@ -13,7 +13,7 @@ const Layout = () => {
       <div className="row-start-1 row-end-2 col-start-2 col-end-3 sticky top-0 left-0 z-10">
         <Navbar/>
       </div>
-      <div className="row-start-2 row-end-3 col-start-2 col-end-3 bg-slate-200">
+      <div className="row-start-2 row-end-3 col-start-2 col-end-3 bg-white">
         <Outlet/>
       </div>
     </div>

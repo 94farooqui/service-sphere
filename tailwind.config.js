@@ -16,6 +16,9 @@ export default {
       fontFamily: {
         Kalam: ['Kalam', 'sans-serif'],
       },
+      truncateLines: {
+        3: '3rem',
+      },
     },
   },
   plugins: [],

@@ -1,24 +1,29 @@
 export const sidebar = [
     {
-        iconUrl : '/assets/home-com.svg',
+        iconUrl : '/assets/home_icon.svg',
         label:'Home',
         routeUrl:'/'
     },
     {
-        iconUrl : '/assets/bug.svg',
+        iconUrl : '/assets/allbugs_icon.svg',
         label:'All Bugs',
         routeUrl:'/bugs'
     },
     {
-        iconUrl : '/assets/assign-user-com.svg',
+        iconUrl : '/assets/me_icon.svg',
         label:'Assigned to me',
         routeUrl:'/me'
     },
     {
-        iconUrl : '/assets/archive-com.svg',
+        iconUrl : '/assets/archive_icon.svg',
         label:'Archive',
         routeUrl:'/archive'
-    }
+    },
+    {
+      iconUrl : '/assets/settings_icon.svg',
+      label:'Settings',
+      routeUrl:'/settings'
+  }
 ]
 
 export const bugs = [
@@ -296,3 +301,87 @@ export const bugs = [
       email: "raina@india.com"
     }
   ]
+
+  export const projects = [
+    {
+      name:"Project A",
+      description: "This is description for project A. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      name:"Project B",
+      description: "This is description for project A. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      name:"Project C",
+      description: "This is description for project A. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      name:"Project D",
+      description: "This is description for project A. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      name:"Project E",
+      description: "This is description for project A. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      name:"Project F",
+      description: "This is description for project A. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      name:"Project G",
+      description: "This is description for project A. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      name:"Project H",
+      description: "This is description for project A. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  ]
+
+
+  const teams = [
+    {
+      name:"project-1-frontend",
+      description: "Project 01 Frontend team",
+      domain : "Frontend",
+      members: ["65bfb474bd092bff9fb0a0a4",
+                "65bfb464bd092bff9fb0a0a1",
+                "65bfb44abd092bff9fb0a09e",
+                "65bfb436bd092bff9fb0a09b",
+                "65bfb41fbd092bff9fb0a098"
+              ]
+    },
+    {
+      name:"project-1-backend",
+      description: "Project 01 Backend team",
+      domain : "Frontend",
+      members: ["65bfb474bd092bff9fb0a0a4",
+                "65bfb464bd092bff9fb0a0a1",
+                "65bfb44abd092bff9fb0a09e",
+                "65bfb436bd092bff9fb0a09b",
+                "65bfb41fbd092bff9fb0a098"
+              ]
+    },
+    {
+      name:"project-2-frontend",
+      description: "Project 02 Frontend team",
+      domain : "Frontend",
+      members: ["65bfb474bd092bff9fb0a0a4",
+                "65bfb464bd092bff9fb0a0a1",
+                "65bfb44abd092bff9fb0a09e",
+                "65bfb436bd092bff9fb0a09b",
+                "65bfb41fbd092bff9fb0a098"
+              ]
+    },
+    {
+      name:"project-1-frontend",
+      description: "Project 01 Frontend team",
+      domain : "Frontend",
+      members: ["65bfb474bd092bff9fb0a0a4",
+                "65bfb464bd092bff9fb0a0a1",
+                "65bfb44abd092bff9fb0a09e",
+                "65bfb436bd092bff9fb0a09b",
+                "65bfb41fbd092bff9fb0a098"
+              ]
+    }
+  ]
+

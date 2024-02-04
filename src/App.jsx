@@ -16,6 +16,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AuthLayout from "./Layout/AuthLayout";
 import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+import NewProject from "./pages/NewProject";
 
 export default function App() {
 
@@ -51,6 +53,14 @@ export default function App() {
       {
         path:'/new-bug',
         element: <NewBug/>
+      },
+      {
+        path:'/settings',
+        element: <Settings/>,
+      },
+      {
+        path:'/settings/projects/new',
+        element: <NewProject/>
       }
     ]
   },{

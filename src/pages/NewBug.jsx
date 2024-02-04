@@ -38,7 +38,7 @@ const bug = () => {
   };
   return (
     <div className="p-8">
-      <div className="bg-white p-6 rounded-lg drop-shadow-md">
+      <div className="bg-white p-6 rounded-lg drop-shadow-md border">
         <form
           onSubmit={(event) => handleFormSubmit(event)}
           className="flex flex-col gap-4"
@@ -82,14 +82,14 @@ const bug = () => {
           </div>
           <div className="self-end flex gap-2 mt-4">
           <button
-            className="bg-red-400 text-white font-semibold self-end px-4 py-2 rounded-md"
+            className="button-secondary"
             onClick={()=>navigate(-1)}
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="bg-gray-900 text-white font-semibold self-end px-4 py-2 rounded-md"
+            className="button-primary"
           >
             Submit
           </button>

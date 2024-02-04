@@ -1,16 +1,22 @@
 import React from 'react'
 import {sidebar} from './../../data'
 import SidebarTab from '../shared/SidebarTab'
+import Logout from './../../public/assets/log_out_icon.svg'
 
 const Sidebar = () => {
   //console.log(sidebar)
   return (
-    <div className='h-full max-h-screen bg-gray-900 flex flex-col sticky top-0 left-0 z-20 '>
-        <h1 className='text-white font-bold my-4 text-2xl italic text-center'>Service Sphere</h1>
-        <div className='flex flex-col gap-2  py-4 px-4'>
+    <div className='h-full max-h-screen bg-neutral-950 sticky top-0 left-0 z-20 p-2'>
+       <div className='h-full flex flex-col '>
+       <h1 className='text-slate-200 font-bold my-4 text-2xl ml-6'>Service Sphere</h1>
+        <div className='flex flex-col items-start ml-6 gap-2'>
         {sidebar.map(tab => <SidebarTab key={tab.label} label={tab.label} iconUrl={tab.iconUrl} routeUrl={tab.routeUrl} />)}
         </div>
-        <button onClick={()=>setOpen(!open)} className='rounded-full bg-slate-900 border border-gray-900 w-6 h-6 absolute top-12 -right-3 z-20'><img src='/assets/arrow.svg' className='w-6 h-6  invert' /></button>
+        <div className='bg-neutral-900 mt-auto p-2 rounded-md'>
+          <button className='text-slate-200 flex gap-4 items-center'><img className='invert inline' src={Logout}/> Mubasshir Farooqui</button>
+        </div>
+        {/* <button onClick={()=>setOpen(!open)} className='rounded-full bg-slate-900 border border-gray-900 w-6 h-6 absolute top-12 -right-3 z-20'><img src='/assets/arrow.svg' className='w-6 h-6  invert' /></button> */}
+       </div>
     </div>
   )
 }

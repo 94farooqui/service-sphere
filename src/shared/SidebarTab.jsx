@@ -5,7 +5,7 @@ const SidebarTab = ({iconUrl,label,routeUrl}) => {
     //console.log(routeUrl)
   return (<>
    <NavLink to={routeUrl}>
-    <div key={label} className='h-8  text-slate-300 flex gap-4 items-center hover:cursor-pointer font-semibold'>
+    <div key={label} className='h-8  text-slate-300 flex gap-4 items-center hover:cursor-pointer'>
        <img src={iconUrl} width={20} height={20} className='invert' />
        {true && <p className='flex-1'>{label}</p>}
     </div>

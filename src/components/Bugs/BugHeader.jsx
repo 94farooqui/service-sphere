@@ -6,7 +6,7 @@ const BugHeader = ({bug}) => {
     const statusColor = getStatusColor(bug.status)
     //console.log(bug)
   return (
-    <div className='bg-white p-6 rounded-lg grid grid-cols-1 gap-4 shadow-sm'>
+    <div className='bg-white px-4 py-6 border border-slate-200 rounded-lg grid grid-cols-1 gap-4 drop-shadow-sm'>
         <h4 className="text-xl font-semibold  text-slate-800">{bug.name}</h4>
         
         

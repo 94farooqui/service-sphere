@@ -43,7 +43,7 @@ const Login = () => {
                 placeholder="Password"
               />
             </div>
-            <button type="submit" className="rounded-full bg-indigo-500 px-4 py-2 text-white">
+            <button type="submit" className="rounded-md bg-indigo-500 px-4 py-2 text-white">
               Login
             </button>
           </form>
