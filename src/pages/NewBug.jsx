@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import HeaderContext from "../context/HeaderContext";
 import { bugs } from "../../data";
 import {addingBug} from './../helpers/bugHelper.js'
+import { getAllProjects } from "../helpers/projectHelper.js";
 
 const initialBugValues = {
   name: "",
@@ -16,11 +17,19 @@ const initialBugValues = {
 };
 
 const bug = () => {
+  const [allProjects,setAllProjects] = useState([])
   const { headerText, setHeaderText } = useContext(HeaderContext);
   const [bug, setBug] = useState(initialBugValues);
   const navigate = useNavigate();
 
+  const gettingAllProject = async () => {
+    const data = await getAllProjects()
+    setAllProjects(data)
+  }
+
   useEffect(() => {
+    gettingAllProject()
+    console.log(allProjects)
     setHeaderText("New Bug");
   }, []);
 
@@ -73,11 +82,11 @@ const bug = () => {
               onChange={e => onValueChange(e)}
               value={bug.project}
             >
-              {bugs.map((bug) => (
-                <option key={bug.project} value={bug.project}>
-                  {bug.project}
+              {allProjects ? allProjects.map((project) => (
+                <option key={project._id} value={project.name}>
+                  {project.name}
                 </option>
-              ))}
+              )): <option>No Project</option>}
             </select>
           </div>
           <div className="self-end flex gap-2 mt-4">

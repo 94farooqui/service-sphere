@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { projects } from "../../data";
 import ProjectCard from "./ProjectCard";
 import { getAllProjects } from "../helpers/projectHelper";
+import { NavLink } from "react-router-dom";
 
 const ProjectsList = () => {
 
@@ -19,7 +20,7 @@ const ProjectsList = () => {
   return (
     <div className="grid grid-cols-4 gap-4 mt-2">
       {allProjects.map((project) => (
-        <ProjectCard project={project} />
+        <NavLink to={`/settings/projects/${project._id}`}><ProjectCard project={project} /></NavLink>
       ))}
     </div>
   );

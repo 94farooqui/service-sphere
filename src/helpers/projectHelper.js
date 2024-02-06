@@ -11,6 +11,12 @@ export const createProject = async (project) => {
 
 export const getAllProjects = async () =>  {
     const res = await axios.get(`${serverUrl}/projects`)
-    console.log(res.data)
+    //console.log(res.data)
     return res.data;
+}
+
+export const getProjectDetails = async (id) =>{
+    console.log("From helper", id)
+    const res = await axios.get(`${serverUrl}/projects/${id}`)
+    return res.data
 }

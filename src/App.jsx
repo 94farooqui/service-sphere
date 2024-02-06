@@ -18,6 +18,7 @@ import AuthLayout from "./Layout/AuthLayout";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import NewProject from "./pages/NewProject";
+import ProjectDetails from "./pages/ProjectDetails";
 
 export default function App() {
 
@@ -61,6 +62,10 @@ export default function App() {
       {
         path:'/settings/projects/new',
         element: <NewProject/>
+      },
+      {
+        path:'/settings/projects/:id',
+        element: <ProjectDetails/>
       }
     ]
   },{

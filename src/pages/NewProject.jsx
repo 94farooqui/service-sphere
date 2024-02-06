@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { createProject } from "../helpers/projectHelper";
+import React, { useEffect, useState } from "react";
+import { createProject, getAllProjects } from "../helpers/projectHelper";
 import { useNavigate } from "react-router-dom";
 
 const NewProject = () => {
     const [newProject, setNewProject] = useState()
+    
     const navigate = useNavigate()
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +16,7 @@ const NewProject = () => {
   const onValueChange = (e) => {
     setNewProject({...newProject, [e.target.name]:e.target.value});
   };
+ 
   return (
     <div className="p-8">
       <div className="bg-white p-6 rounded-lg drop-shadow-md border">
