@@ -11,16 +11,16 @@ const BugDetailsCard = ({ bug }) => {
   return (
     <div className="grid grid-cols-[auto_280px]">
       
-      <div className=" flex flex-col gap-8 p-4 ">
+      <div className="page-flex  p-4 ">
         <BugHeader bug={bug} />
-        <div className=" rounded-lg">
+        <div className="">
           <h2 className="section-head">Description</h2>
-          <p  className="bg-white rounded-md drop-shadow-sm border border-slate-200 p-4">{bug.description}</p>
+          <p  className="card">{bug.description}</p>
         </div>
         <BugConversations bug={bug}/> 
       </div>
       <div className="h-[calc(100vh-60px)] flex flex-col justify-between  p-4 border-l border-slate-300">
-        <div className="h-full flex flex-col gap-3 ">
+        <div className="h-full page-flex ">
           <BugStatusCard bug={bug}/>
           <BugAuthor/>
           <BugAssigneeCard/>

@@ -3,7 +3,7 @@ import {users} from './../../../data.js'
 
 const BugAssigneeCard = () => {
   return (
-    <div className='bg-white p-4 rounded-md'>
+    <div className='bg-white p-4 rounded-md border'>
       <div  className='flex flex-col gap-2'>
         <p className='text-sm font-semibold te text-slate-500'>People working</p>
         <div className='flex'>

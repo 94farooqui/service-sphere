@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HeaderContext from "../context/HeaderContext";
 import { bugs } from "../../data";
-import {addingBug} from './../helpers/bugHelper.js'
+import { addingBug } from "./../helpers/bugHelper.js";
 import { getAllProjects } from "../helpers/projectHelper.js";
 
 const initialBugValues = {
@@ -17,19 +17,19 @@ const initialBugValues = {
 };
 
 const bug = () => {
-  const [allProjects,setAllProjects] = useState([])
+  const [allProjects, setAllProjects] = useState([]);
   const { headerText, setHeaderText } = useContext(HeaderContext);
   const [bug, setBug] = useState(initialBugValues);
   const navigate = useNavigate();
 
   const gettingAllProject = async () => {
-    const data = await getAllProjects()
-    setAllProjects(data)
-  }
+    const data = await getAllProjects();
+    setAllProjects(data);
+  };
 
   useEffect(() => {
-    gettingAllProject()
-    console.log(allProjects)
+    gettingAllProject();
+    console.log(allProjects);
     setHeaderText("New Bug");
   }, []);
 
@@ -40,9 +40,9 @@ const bug = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     const added = await addingBug(bug);
-    if(added){
-        setBug(initialBugValues)
-        navigate(-1)
+    if (added) {
+      setBug(initialBugValues);
+      navigate(-1);
     }
   };
   return (
@@ -53,57 +53,54 @@ const bug = () => {
           className="flex flex-col gap-4"
         >
           <div className="flex flex-col gap-1">
-            <label className="font-semibold text-slate-600">Title</label>
+            <label className="input-label-style">Title</label>
             <input
-              className="bg-transparent border border-slate-300 rounded-md p-2"
+              className="input-style"
               id="bug-title"
               name="name"
-              onChange={e => onValueChange(e)}
+              onChange={(e) => onValueChange(e)}
               value={bug.name}
             />
           </div>
           <div className="flex flex-col gap-1">
-            <label className="font-semibold text-slate-600">Description</label>
+            <label className="input-label-style">Description</label>
             <textarea
-              className="bg-transparent border border-slate-300 rounded-md p-2 resize-none"
+              className="input-style resize-none"
               rows={4}
               id="bug-title"
               name="description"
-              onChange={e => onValueChange(e)}
+              onChange={(e) => onValueChange(e)}
               value={bug.description}
             />
           </div>
           <div className="flex flex-col gap-1">
-            <label className="font-semibold text-slate-600">Project</label>
+            <label className="input-label-style">Project</label>
             <select
-              className="bg-transparent border border-slate-300 rounded-md p-2"
+              className="input-style"
               id="project"
               name="project"
-              onChange={e => onValueChange(e)}
+              onChange={(e) => onValueChange(e)}
               value={bug.project}
             >
-              {allProjects ? allProjects.map((project) => (
-                <option key={project._id} value={project.name}>
-                  {project.name}
-                </option>
-              )): <option>No Project</option>}
+              {allProjects ? (
+                allProjects.map((project) => (
+                  <option key={project._id} value={project.name}>
+                    {project.name}
+                  </option>
+                ))
+              ) : (
+                <option>No Project</option>
+              )}
             </select>
           </div>
           <div className="self-end flex gap-2 mt-4">
-          <button
-            className="button-secondary"
-            onClick={()=>navigate(-1)}
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="button-primary"
-          >
-            Submit
-          </button>
+            <button className="button-secondary" onClick={() => navigate(-1)}>
+              Cancel
+            </button>
+            <button type="submit" className="button-primary">
+              Submit
+            </button>
           </div>
-          
         </form>
       </div>
     </div>

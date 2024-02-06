@@ -2,7 +2,7 @@ import React from 'react'
 
 const BugPropertiesCard = () => {
   return (
-    <div className='bg-white p-2 rounded-md'>
+    <div className='bg-white p-2 rounded-md border'>
       <div>
         <p className='text-sm font-semibold te text-slate-500'>Properties</p>
         <form className='text-sm'>
