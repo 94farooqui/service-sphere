@@ -53,6 +53,6 @@ export const getBug = async (id) => {
     }
 }
 
-export const updateBug = async (id) => {
-
+export const updateBug = async (bug) => {
+    const response = await axios.put(`${serverUrl}/bugs/${bug.id}`, bug)
 }

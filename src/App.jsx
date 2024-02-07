@@ -20,6 +20,7 @@ import Settings from "./pages/Settings";
 import NewProject from "./pages/NewProject";
 import ProjectDetails from "./pages/ProjectDetails";
 import NewDomain from "./pages/NewDomain";
+import EditProjectDetails from "./pages/EditProjectDetails";
 
 export default function App() {
 
@@ -67,6 +68,10 @@ export default function App() {
       {
         path:'/settings/projects/:id',
         element: <ProjectDetails/>
+      },
+      {
+        path:'/settings/projects/:id/edit',
+        element: <EditProjectDetails/>
       },
       {
         path:'/settings/domains/new',

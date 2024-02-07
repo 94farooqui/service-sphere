@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink, useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getProjectDetails } from "../helpers/projectHelper";
 import HeaderContext from "../context/HeaderContext";
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
@@ -11,9 +11,8 @@ const teamDefault = {
   members: [],
 };
 
-const ProjectDetails = () => {
+const EditProjectDetails = () => {
   const { headerText, setHeaderText } = useContext(HeaderContext);
-  const location = useLocation()
 
   const [project, setProject] = useState();
   const { id } = useParams();
@@ -36,6 +35,11 @@ const ProjectDetails = () => {
     setHeaderText(data.name);
   };
 
+  const savechanges = (e) => {
+    e.preventDefault()
+
+  }
+
   useEffect(() => {
     getProject(id);
   }, [id]);
@@ -44,10 +48,6 @@ const ProjectDetails = () => {
   return (
     <div className="p-9 h-full ">
       <div className="h-full page-flex overflow-scroll">
-        <div className="flex justify-between">
-            <h2 className="section-head">Description</h2>
-            <span className="button-secondary-light hover:text-neutral-950 hover:border-neutral-950 text-center"><NavLink to={`${location.pathname}/edit`}>Edit</NavLink></span>
-        </div>
         <div>
           <h2 className="section-head">Description</h2>
           <p className="card">{project.description}</p>
@@ -56,6 +56,15 @@ const ProjectDetails = () => {
         <div className="flex flex-col gap-2">
           <div className="flex justify-between relative">
             <h2 className="section-head">Teams</h2>
+            <button className="bg-neutral-900 text-white rounded-md p-2">
+              Add team
+            </button>
+            <select
+              onChange={(e) => onDomainSelect(e)}
+              className="absolute z-10 top-12 right-0 py-2 px-6 bg-white text-slate-700 border rounded-md"
+            >
+              <DomainsList />
+            </select>
           </div>
           {teams.length > 0 && (
             <div className="flex flex-col gap-2">
@@ -70,8 +79,12 @@ const ProjectDetails = () => {
           )}
         </div>
       </div>
+      <div className="fixed bg-white p-2 w-full bottom-0 left-0 border-t flex justify-center items-center gap-4">
+        <button className="button-secondary">Cancel</button>
+        <button onClick={(e)=>savechanges(e)} className="button-primary">Save</button>
+      </div>
     </div>
   );
 };
 
-export default ProjectDetails;
+export default EditProjectDetails;

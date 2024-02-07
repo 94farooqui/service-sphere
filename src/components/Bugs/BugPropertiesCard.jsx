@@ -1,6 +1,9 @@
 import React from 'react'
 
-const BugPropertiesCard = () => {
+const BugPropertiesCard = ({bug,setBug}) => {
+  const onValueChange = (e) => {
+    setBug({...bug, [e.target.name]:e.target.value})
+  } 
   return (
     <div className='bg-white p-2 rounded-md border'>
       <div>
@@ -8,7 +11,7 @@ const BugPropertiesCard = () => {
         <form className='text-sm'>
           <div>
             <label>Project</label>
-            <select className='ml-2 border p-2 rounded-md'>
+            <select onChange={(e)=>onValueChange(e)} className='ml-2 border p-2 rounded-md'>
               <option>Project A</option>
               <option>Project B</option>
               <option>Project C</option>
@@ -17,7 +20,7 @@ const BugPropertiesCard = () => {
           </div>
           <div>
           <label>Priority</label>
-          <select className='ml-2 border p-2 rounded-md'>
+          <select onChange={(e)=>onValueChange(e)} className='ml-2 border p-2 rounded-md'>
               <option>Critical</option>
               <option>High</option>
               <option>Medium</option>
@@ -27,7 +30,7 @@ const BugPropertiesCard = () => {
           </div>
           <div>
           <label>Status</label>
-          <select className='ml-2 border p-2 rounded-md'>
+          <select onChange={(e)=>onValueChange(e)} className='ml-2 border p-2 rounded-md'>
               <option>Open</option>
               <option>Pending</option>
               <option>Closed</option>
@@ -35,7 +38,7 @@ const BugPropertiesCard = () => {
           </div>
           <div>
           <label>Bug type</label>
-          <select className='ml-2 border p-2 rounded-md'>
+          <select onChange={(e)=>onValueChange(e)} className='ml-2 border p-2 rounded-md'>
               <option>System</option>
               <option>Database</option>
               <option>Front End</option>

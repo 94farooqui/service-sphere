@@ -9,11 +9,15 @@
 }
 
 .button-primary{
-    @apply bg-neutral-950 w-24 p-2 text-slate-200 rounded-md shadow-sm text-sm font-semibold
+    @apply bg-neutral-950 w-24 h-10 p-2 text-slate-200 rounded-md shadow-sm text-sm font-semibold
 }
 
+
 .button-secondary{
-    @apply border-2 border-neutral-950 w-24 p-2 text-neutral-950 rounded-md shadow-sm text-sm font-bold
+    @apply border-2 border-neutral-950 w-24 h-10 p-2 text-neutral-950 rounded-md shadow-sm text-sm font-bold
+}
+.button-secondary-light{
+    @apply border-2 border-neutral-400 w-24 h-10 p-2 text-neutral-400 rounded-md shadow-sm text-sm font-bold
 }
 .button-small{
     @apply bg-gray-700 hover:bg-gray-900 duration-100 text-white text-sm rounded-full px-4 py-1

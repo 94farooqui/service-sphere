@@ -11,9 +11,9 @@ export const createDomain = async (domain) => {
 }
 
 export const getAllDomains = async () => {
-    console.log("Getting domains")
+    //console.log("Getting domains")
     const res = await axios.get(`${serverUrl}/domains`)
-    console.log(res)
+    //console.log(res)
     if(res.status==200){
         return res.data
     }

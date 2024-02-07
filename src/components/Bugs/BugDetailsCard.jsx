@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import BugHeader from "./BugHeader";
 import BugStatusCard from "./BugStatusCard";
 import BugAuthor from "./BugAuthor";
 import BugAssigneeCard from "./BugAssigneeCard";
 import BugPropertiesCard from "./BugPropertiesCard";
 import BugConversations from "./BugConversations";
+import { updateBug } from "../../helpers/bugHelper";
 
 const BugDetailsCard = ({ bug }) => {
   //console.log(bug)
+  const [bugDetails,setBugDetails] = useState(bug)
+
+  const onsubmit = async (e) => {
+  const response = await updateBug(bugDetails) 
+  }
   return (
     <div className="grid grid-cols-[auto_280px]">
       
@@ -24,9 +30,9 @@ const BugDetailsCard = ({ bug }) => {
           <BugStatusCard bug={bug}/>
           <BugAuthor/>
           <BugAssigneeCard/>
-          <BugPropertiesCard/>
+          <BugPropertiesCard bug={bugDetails} setBug={setBugDetails}/>
         </div>
-        <button className="bg-slate-800 text-white p-2 rounded-md">Submit</button>
+        <button onClick={(e)=>onsubmit(e)} className="bg-slate-800 text-white p-2 rounded-md">Submit</button>
       </div>
     </div>
   );
