@@ -4,34 +4,26 @@ import { bugs } from "./../../data";
 import BugDetailsCard from "../components/Bugs/BugDetailsCard";
 import HeaderContext from "../context/HeaderContext";
 import { getBug } from "../helpers/bugHelper";
+import { useQuery } from "@tanstack/react-query";
 
 const BugDetails = () => {
-  const {headerText,setHeaderText} = useContext(HeaderContext)
-  const [bug,setBug] = useState();
   const params = useParams();
-  const id = params.id;
-  //const bug = bugs.find((bug) => bug._id === id);
-
-  const gettingBugDetails = async () => {
-    const data = await getBug(id);
-    //console.log(data)
-    setBug(data)
-    setHeaderText( "All Bugs > " + data.bug_id)
-  }
+  const {data:bug, isLoading, error} = useQuery({queryKey:["todo",params.id], queryFn:()=>getBug(params.id)})
+  const {headerText,setHeaderText} = useContext(HeaderContext)
 
   useEffect(()=>{
-    
-    gettingBugDetails()
+  
   },[])
 
-  if(bug){
-   
+  if(isLoading) return <p>Loading..</p>
+
+  if(error) return <p>{error}</p>
+
     return (
       <div className="">
         <BugDetailsCard bug={bug} />
       </div>
     );
-  }
 };
 
 export default BugDetails;

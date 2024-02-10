@@ -31,6 +31,7 @@ export const getAllBugs = async () => {
     try{
         const response = await axios.get(`${serverUrl}/bugs`);
         if(response.status === 200){
+            console.log(response.data)
             return response.data
         }
     }

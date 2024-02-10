@@ -3,21 +3,20 @@ import { bugs } from "./../../data";
 import BugSmallCard from "../components/Bugs/BugSmallCard";
 import HeaderContext from "../context/HeaderContext";
 import { getAllBugs } from "../helpers/bugHelper";
+import { useQuery } from "@tanstack/react-query";
 
 const AllBugs = () => {
-    const {headerText,setHeaderText} = useContext(HeaderContext)
-    const [allBugs,setAllBugs] = useState([])
+  const {data:allBugs, isLoading, error} = useQuery({queryKey:["bugs"], queryFn:getAllBugs})
 
-    const getBugs = async () => {
-      const data = await getAllBugs();
-      //console.log(data)
-      setAllBugs(data)
-    }
+    const {headerText,setHeaderText} = useContext(HeaderContext)
 
     useEffect(()=>{
         setHeaderText("All Bugs")
-        getBugs();
     },[])
+
+    if(isLoading) return <h2>Loading...</h2>
+
+    if(error) return <h2>{error}</h2>
 
     if(allBugs){
       return (

@@ -1,34 +1,50 @@
 import React, { useEffect, useState } from "react";
 import { addComment, getBugComments } from "../../helpers/commentHelper";
 import { FaCommentMedical } from "react-icons/fa";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 const defaultComment = {
   message: "",
 };
 
-const BugConversations = ({ bug }) => {
+const BugConversations = ({id}) => {
+  //to show or hide the add comment box
+  console.log(id);
   const [showComment, setShowComment] = useState(false);
+  //new comment
   const [comment, setComment] = useState(defaultComment);
-  const [allComments, setAllComments] = useState();
 
-  const handleCommentSubmit = (event) => {
-    event.preventDefault();
-    const added = addComment(comment, bug._id);
-    if (added) {
+  const {
+    data: comments,
+    isLoading,
+    error: queryError,
+    refetch : refetchComments
+  } = useQuery({
+    queryKey: ["comments", id],
+    queryFn: () => getBugComments(id),
+  });
+
+  const mutatation = useMutation({
+    mutationFn: () => addComment(comment, id),
+    onSuccess: () => {
       setComment(defaultComment);
       setShowComment(false);
-      gettingAllComments(bug._id)
-    }
-  };
+      refetchComments()
+    },
+    onError: () => {
+      console.log("Unable to add comment");
+    },
+  });
 
-  const gettingAllComments = async (bugId) => {
-    const data = await getBugComments(bugId);
-    setAllComments(data);
+ 
+  const handleCommentSubmit = (event) => {
+    event.preventDefault();
+    console.log("ID from submit", id)
+    mutatation.mutate(comment, id);
   };
 
   useEffect(() => {
-    //setComment({...comment, bugId:bug._id})
-    gettingAllComments(bug._id);
+
   }, []);
   return (
     <div className="">
@@ -54,7 +70,7 @@ const BugConversations = ({ bug }) => {
                 onChange={(e) =>
                   setComment({ ...comment, message: e.target.value })
                 }
-                className="w-full bg-slate-100 rounded-lg p-4 resize-none focus:ring-1 focus:ring-slate-200 focus:outline-none"
+                className="w-full text-slate-600 bg-slate-100 rounded-lg p-4 resize-none focus:ring-1 focus:ring-slate-200 focus:outline-none"
                 rows={3}
               />
             </div>
@@ -65,32 +81,30 @@ const BugConversations = ({ bug }) => {
               >
                 Cancel
               </button>
-              <button
-                type="submit"
-                className="button-primary"
-              >
+              <button type="submit" className="button-primary">
                 Save
               </button>
             </div>
           </form>
         </div>
       )}
-      {allComments && (!allComments.length > 0 ? (
-        <p>No comments</p>
-      ) : (
-        <div className="flex flex-col full-border rounded-lg overflow-hidden mt-4">
-          {allComments.map((com) => (
-            <div
-              key={com._id}
-              className="bg-white grid grid-cols-2 gap-1 p-4 shadow-sm border-b border-slate-200 text-slate-600"
-            >
-              <h4 className="font-semibold text-sm">Mubasshir</h4>
-              {/* <p className='text-sm text-slate-400 text-end'>{com.time.toLocaleString()}</p> */}
-              <p className="col-span-2">{com.message}</p>
-            </div>
-          ))}
-        </div>
-      ))}
+      {comments &&
+        (!comments.length > 0 ? (
+          <p>No comments</p>
+        ) : (
+          <div className="flex flex-col full-border rounded-lg overflow-hidden mt-4">
+            {comments.map((com) => (
+              <div
+                key={com._id}
+                className="bg-white grid grid-cols-2 gap-1 p-4 shadow-sm border-b border-slate-200 text-slate-600"
+              >
+                <h4 className="font-semibold text-sm">Mubasshir</h4>
+                {/* <p className='text-sm text-slate-400 text-end'>{com.time.toLocaleString()}</p> */}
+                <p className="col-span-2">{com.message}</p>
+              </div>
+            ))}
+          </div>
+        ))}
     </div>
   );
 };

@@ -4,7 +4,7 @@ const serverUrl = 'http://localhost:9000';
 
 export const addComment = async(comment,bugId) => {
     const newComment = {...comment, user: '65b65e949e09feee22f9bee8' }
-    //console.log(newComment)
+    console.log(newComment, bugId)
     ///bugs/:id/comments
     try{
         const response = await axios.post(`${serverUrl}/bugs/${bugId}/comments`, newComment)

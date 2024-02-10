@@ -9,7 +9,7 @@ const BugAssigneeCard = () => {
         <div className='flex'>
         {users.map((user,index) => {
           if(index<5){
-            return <div className={`w-8 h-8 bg-slate-900 rounded-full border-2 border-white -mr-2 `}><p className='text-white text-xs text-center m-1'>{user.name.split(" ")[0][0].toUpperCase()+user.name.split(" ")[1][0].toUpperCase()}</p></div>
+            return <div key={index} className={`w-8 h-8 bg-slate-900 rounded-full border-2 border-white -mr-2 `}><p className='text-white text-xs text-center m-1'>{user.name.split(" ")[0][0].toUpperCase()+user.name.split(" ")[1][0].toUpperCase()}</p></div>
           }
           
             
