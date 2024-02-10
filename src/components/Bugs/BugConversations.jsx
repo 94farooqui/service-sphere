@@ -78,11 +78,11 @@ const BugConversations = ({ bug }) => {
       {allComments && (!allComments.length > 0 ? (
         <p>No comments</p>
       ) : (
-        <div className="flex flex-col border rounded-lg overflow-hidden mt-4">
+        <div className="flex flex-col full-border rounded-lg overflow-hidden mt-4">
           {allComments.map((com) => (
             <div
               key={com._id}
-              className="bg-white grid grid-cols-2 gap-1 p-4 shadow-sm border-b"
+              className="bg-white grid grid-cols-2 gap-1 p-4 shadow-sm border-b border-slate-200 text-slate-600"
             >
               <h4 className="font-semibold text-sm">Mubasshir</h4>
               {/* <p className='text-sm text-slate-400 text-end'>{com.time.toLocaleString()}</p> */}

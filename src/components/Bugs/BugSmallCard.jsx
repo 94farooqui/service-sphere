@@ -13,7 +13,7 @@ const BugSmallCard = ({ bug }) => {
       <NavLink to={`/bugs/${_id}`}>
         <div
           
-          className="p-4  border shadow-md rounded-md grid grid-cols-1 gap-2"
+          className="p-4  border border-slate-200 shadow-md rounded-md grid grid-cols-1 gap-2"
         >
           <div className="flex justify-between items-center text-xs text-gray-400">
             <div className="flex items-center gap-2">

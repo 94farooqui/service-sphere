@@ -2,7 +2,7 @@ import React from 'react'
 
 const BugAuthor = () => {
   return (
-    <div className='bg-white p-4 rounded-md border'>
+    <div className='card bg-white p-4 rounded-md border'>
       
       <div className='flex flex-col gap-2'>
         <p>Author Info</p>

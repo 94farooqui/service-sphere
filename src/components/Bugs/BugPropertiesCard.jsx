@@ -5,22 +5,22 @@ const BugPropertiesCard = ({bug,setBug}) => {
     setBug({...bug, [e.target.name]:e.target.value})
   } 
   return (
-    <div className='bg-white p-2 rounded-md border'>
+    <div className='card bg-white p-2 rounded-md border'>
       <div>
         <p className='text-sm font-semibold te text-slate-500'>Properties</p>
-        <form className='text-sm'>
-          <div>
-            <label>Project</label>
-            <select onChange={(e)=>onValueChange(e)} className='ml-2 border p-2 rounded-md'>
+        <form className='mt-4 text-sm flex flex-col gap-2'>
+          <div className='grid grid-cols-[60px_auto]'>
+          <label className='self-center'>Project</label>
+            <select onChange={(e)=>onValueChange(e)} className='input-select-style'>
               <option>Project A</option>
               <option>Project B</option>
               <option>Project C</option>
               <option>Project D</option>
             </select>
           </div>
-          <div>
-          <label>Priority</label>
-          <select onChange={(e)=>onValueChange(e)} className='ml-2 border p-2 rounded-md'>
+          <div className='grid grid-cols-[60px_auto]'>
+          <label className='self-center'>Priority</label>
+          <select onChange={(e)=>onValueChange(e)} className='input-select-style'>
               <option>Critical</option>
               <option>High</option>
               <option>Medium</option>
@@ -28,17 +28,17 @@ const BugPropertiesCard = ({bug,setBug}) => {
               
             </select>
           </div>
-          <div>
-          <label>Status</label>
-          <select onChange={(e)=>onValueChange(e)} className='ml-2 border p-2 rounded-md'>
+          <div className='grid grid-cols-[60px_auto]'>
+          <label className='self-center'>Status</label>
+          <select onChange={(e)=>onValueChange(e)} className='input-select-style'>
               <option>Open</option>
               <option>Pending</option>
               <option>Closed</option>
             </select>
           </div>
-          <div>
-          <label>Bug type</label>
-          <select onChange={(e)=>onValueChange(e)} className='ml-2 border p-2 rounded-md'>
+          <div className='grid grid-cols-[60px_auto]'>
+          <label className='self-center'>Bug type</label>
+          <select onChange={(e)=>onValueChange(e)} className='input-select-style'>
               <option>System</option>
               <option>Database</option>
               <option>Front End</option>

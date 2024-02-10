@@ -24,7 +24,7 @@
 }
 
 .card{
-    @apply bg-white px-4 py-6 border border-slate-200 rounded-lg drop-shadow-sm
+    @apply bg-white px-4 py-6 border border-slate-200 rounded-lg drop-shadow-sm text-slate-600
 }
 
 .card-shadow{
@@ -40,6 +40,13 @@
 .input-label-style{
     @apply font-semibold text-slate-600
 }
+.input-select-style{
+    @apply bg-transparent border border-slate-300 rounded-md px-2 py-1 ml-2 flex-1
+}
 .form-style{
     @apply flex flex-col gap-4
+}
+
+.full-border{
+    @apply border border-slate-200
 }
