@@ -21,80 +21,89 @@ import NewProject from "./pages/NewProject";
 import ProjectDetails from "./pages/ProjectDetails";
 import NewDomain from "./pages/NewDomain";
 import EditProjectDetails from "./pages/EditProjectDetails";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./context/authContext";
 
 export default function App() {
-
   const router = createBrowserRouter([
     {
-    element : <Layout/>,
-    errorElement: <PageNotFound/>,
-    children : [
-      {
-        path: '/',
-        element: <Home/>
-      },
-      {
-        path:'/profile/:id',
-        element: <Profile/>
-      },
-      {
-        path: '/bugs',
-        element: <AllBugs/>
-      },
-      {
-        path:'/bugs/:id',
-        element: <BugDetails/>
-      },
-      {
-        path:'/me',
-        element: <BugsMe/>
-      },
-      {
-        path:'/archive',
-        element: <Archive/>
-      },
-      {
-        path:'/new-bug',
-        element: <NewBug/>
-      },
-      {
-        path:'/settings',
-        element: <Settings/>,
-      },
-      {
-        path:'/settings/projects/new',
-        element: <NewProject/>
-      },
-      {
-        path:'/settings/projects/:id',
-        element: <ProjectDetails/>
-      },
-      {
-        path:'/settings/projects/:id/edit',
-        element: <EditProjectDetails/>
-      },
-      {
-        path:'/settings/domains/new',
-        element: <NewDomain/>
-      },
-    ]
-  },{
-    element: <AuthLayout/>,
-    children: [
-    {
-      path:'/login',
-      element: <Login/>
+      element: <Layout />,
+      errorElement: <PageNotFound />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/profile/:id",
+          element: <Profile />,
+        },
+        {
+          path: "/bugs",
+          element: <AllBugs />,
+        },
+        {
+          path: "/bugs/:id",
+          element: <BugDetails />,
+        },
+        {
+          path: "/me",
+          element: <BugsMe />,
+        },
+        {
+          path: "/archive",
+          element: <Archive />,
+        },
+        {
+          path: "/new-bug",
+          element: <NewBug />,
+        },
+
+        {
+          path: "/settings",
+          element: (
+            <ProtectedRoute>
+              <Settings />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "/settings/projects/new",
+          element: <NewProject />,
+        },
+        {
+          path: "/settings/projects/:id",
+          element: <ProjectDetails />,
+        },
+        {
+          path: "/settings/projects/:id/edit",
+          element: <EditProjectDetails />,
+        },
+        {
+          path: "/settings/domains/new",
+          element: <NewDomain />,
+        },
+      ],
     },
     {
-      path:'/signup',
-      element: <Signup/>
-    }
-  ]
-  }
-])
+      element: <AuthLayout />,
+      children: [
+        {
+          path: "/login",
+          element: <Login />,
+        },
+        {
+          path: "/signup",
+          element: <Signup />,
+        },
+      ],
+    },
+  ]);
   return (
     <HeaderContextProvider>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </HeaderContextProvider>
-  )
+  );
 }

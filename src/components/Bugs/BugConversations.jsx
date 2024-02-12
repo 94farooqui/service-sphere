@@ -9,7 +9,6 @@ const defaultComment = {
 
 const BugConversations = ({id}) => {
   //to show or hide the add comment box
-  console.log(id);
   const [showComment, setShowComment] = useState(false);
   //new comment
   const [comment, setComment] = useState(defaultComment);

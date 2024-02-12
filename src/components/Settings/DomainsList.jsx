@@ -20,7 +20,7 @@ const DomainsList = () => {
         <div className="card-shadow flex items-center">
         <img width={120} height={80} src={Logo} className="border-r" />
           <div className="p-4">
-            <h2>{domain.name}</h2>
+            <h2 className="font-bold">{domain.name}</h2>
             <p>{domain.description}</p>
           </div>
         </div>

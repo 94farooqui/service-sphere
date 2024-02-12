@@ -23,9 +23,9 @@ export const addComment = async(comment,bugId) => {
 export const getBugComments = async (bugId) => {
     try{
         //bugs/:id/comments
-        console.log(bugId)
+        //console.log(bugId)
         const bugComments = await axios.get(`${serverUrl}/bugs/${bugId}/comments/`)
-        console.log(bugComments)
+        //console.log(bugComments)
         return bugComments.data
     }
     catch(error){

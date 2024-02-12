@@ -23,4 +23,9 @@ const loginUser = async (user) => {
     return false
 }
 
-export {registerUser, loginUser};
+const verifyToken = async (token) => {
+    console.log(token)
+    const res = await axios.post(`${serverUrl}/auth/verifyToken`, token)
+    return res
+}
+export {registerUser, loginUser,verifyToken};

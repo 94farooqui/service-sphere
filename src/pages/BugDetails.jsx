@@ -8,20 +8,16 @@ import { useQuery } from "@tanstack/react-query";
 
 const BugDetails = () => {
   const params = useParams();
-  const {data:bug, isLoading, error} = useQuery({queryKey:["todo",params.id], queryFn:()=>getBug(params.id)})
-  const {headerText,setHeaderText} = useContext(HeaderContext)
+
 
   useEffect(()=>{
   
   },[])
 
-  if(isLoading) return <p>Loading..</p>
-
-  if(error) return <p>{error}</p>
 
     return (
       <div className="">
-        <BugDetailsCard bug={bug} />
+        <BugDetailsCard id={params.id} />
       </div>
     );
 };
