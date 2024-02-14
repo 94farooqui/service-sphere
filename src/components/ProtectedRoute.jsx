@@ -1,19 +1,24 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/authContext'
+import useAuth from '../hooks/useAuth'
+import { verifyToken } from '../helpers/authHelper'
 
 const ProtectedRoute = ({children}) => {
-    const navigate = useNavigate()
-    const {auth} = useContext(AuthContext)
-    console.log(auth)
-    
-    useEffect(()=>{
-        if(!auth) {
-            window.alert("You need to login to access the settings")
-            navigate('/login',{ replace: true })}
-    },[])
 
-  return children
+  const navigate = useNavigate()
+  const auth = useAuth()
+
+  useEffect(()=>{
+    if(!auth.isLoggedIn){
+      console.log(auth)
+      navigate('/login')
+    }
+  },[auth,navigate])
+  
+    console.log(auth)
+
+    return children
 }
 
 export default ProtectedRoute

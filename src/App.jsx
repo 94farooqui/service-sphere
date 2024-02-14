@@ -58,31 +58,31 @@ export default function App() {
           path: "/new-bug",
           element: <NewBug />,
         },
-
         {
-          path: "/settings",
-          element: (
-            <ProtectedRoute>
-              <Settings />
-            </ProtectedRoute>
-          ),
-        },
-        {
-          path: "/settings/projects/new",
-          element: <NewProject />,
-        },
-        {
-          path: "/settings/projects/:id",
-          element: <ProjectDetails />,
-        },
-        {
-          path: "/settings/projects/:id/edit",
-          element: <EditProjectDetails />,
-        },
-        {
-          path: "/settings/domains/new",
-          element: <NewDomain />,
-        },
+          element: <ProtectedRoute/>,
+          children: [
+            {
+              path: "/settings",
+              element:<Settings />
+            },
+            {
+              path: "/settings/projects/new",
+              element: <NewProject />,
+            },
+            {
+              path: "/settings/projects/:id",
+              element: <ProjectDetails />,
+            },
+            {
+              path: "/settings/projects/:id/edit",
+              element: <EditProjectDetails />,
+            },
+            {
+              path: "/settings/domains/new",
+              element: <NewDomain />,
+            },
+          ]
+        }
       ],
     },
     {

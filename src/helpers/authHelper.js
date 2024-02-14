@@ -24,8 +24,12 @@ const loginUser = async (user) => {
 }
 
 const verifyToken = async (token) => {
-    console.log(token)
-    const res = await axios.post(`${serverUrl}/auth/verifyToken`, token)
-    return res
+    //console.log(token)
+    const res = await axios.post(`${serverUrl}/auth/verifyToken`,{token})
+    if(res.status == 200){
+        console.log(res)
+        return res.data
+    }
+    
 }
 export {registerUser, loginUser,verifyToken};

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { createContext, useState, useEffect } from 'react';
 import { verifyToken } from '../helpers/authHelper';
 
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
@@ -10,7 +10,6 @@ const AuthProvider = ({ children }) => {
     user: null,
   });
 
-  useEffect( () => {
     const localToken = localStorage.getItem('jwtToken');
     if (localToken) {
       try {
@@ -25,11 +24,9 @@ const AuthProvider = ({ children }) => {
         console.error('Error parsing or validating JWT:', error);
       }
     }
-  }, []);
-
-  const login = async (credentials) => {
-    // Handle login logic and store token on success
-  };
+  // const login = async (credentials) => {
+  //   // Handle login logic and store token on success
+  // };
 
 //   const logout = () => {
 //     clearToken(); // Remove token from localStorage
@@ -39,7 +36,7 @@ const AuthProvider = ({ children }) => {
 //   // Add other functions as needed (e.g., checking roles, refreshing token)
 
   return (
-    <AuthContext.Provider value={{ ...auth }}>
+    <AuthContext.Provider value={{auth}}>
       {children}
     </AuthContext.Provider>
   );

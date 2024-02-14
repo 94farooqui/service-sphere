@@ -20,7 +20,7 @@ const ProjectsList = () => {
   return (
     <div className="grid grid-cols-4 gap-4 mt-2">
       {allProjects.map((project) => (
-        <NavLink to={`/settings/projects/${project._id}`}><ProjectCard project={project} /></NavLink>
+        <NavLink key={project._id} to={`/settings/projects/${project._id}`}><ProjectCard project={project} /></NavLink>
       ))}
     </div>
   );
