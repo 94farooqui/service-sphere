@@ -22,7 +22,7 @@ import ProjectDetails from "./pages/ProjectDetails";
 import NewDomain from "./pages/NewDomain";
 import EditProjectDetails from "./pages/EditProjectDetails";
 import ProtectedRoute from "./components/ProtectedRoute";
-import { AuthProvider } from "./context/authContext";
+import { AuthProvider } from "./context/AuthProvider";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -58,12 +58,13 @@ export default function App() {
           path: "/new-bug",
           element: <NewBug />,
         },
+
         {
           element: <ProtectedRoute/>,
           children: [
             {
               path: "/settings",
-              element:<Settings />
+              element: <Settings />,
             },
             {
               path: "/settings/projects/new",

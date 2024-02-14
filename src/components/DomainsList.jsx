@@ -16,7 +16,7 @@ const DomainsList = () => {
 
   return (
     <>
-        {domainsList.map(domain => <option key={option._id} className="px-4 text-slate-600" value={domain.name}>{domain.name}</option>)}
+        {domainsList.map((domain,index) => <option key={index} className="px-4 text-slate-600" value={domain.name}>{domain.name}</option>)}
       </>
   );
 };

@@ -17,7 +17,7 @@ const DomainsList = () => {
   return (
     <div className="grid grid-cols-2 gap-4">
       {domains.map((domain) => (
-        <div className="card-shadow flex items-center">
+        <div key={domain.name} className="card-shadow flex items-center">
         <img width={120} height={80} src={Logo} className="border-r" />
           <div className="p-4">
             <h2 className="font-bold">{domain.name}</h2>

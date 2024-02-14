@@ -13,7 +13,7 @@ const registerUser = async (user) => {
 }
 
 const loginUser = async (user) => {
-    //console.log(user)
+    console.log(user)
     const response = await axios.post(`${serverUrl}/auth/login`, user)
     console.log(response)
     if(response.status == 200){

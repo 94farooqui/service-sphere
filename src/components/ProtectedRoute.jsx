@@ -1,24 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
-import { AuthContext } from '../context/authContext'
-import useAuth from '../hooks/useAuth'
-import { verifyToken } from '../helpers/authHelper'
+import React, { useContext, useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
+import { verifyToken } from "../helpers/authHelper";
 
-const ProtectedRoute = ({children}) => {
+const ProtectedRoute = ({ children }) => {
+  const {auth} = useContext(AuthContext)
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-  const auth = useAuth()
-
-  useEffect(()=>{
-    if(!auth.isLoggedIn){
-      console.log(auth)
-      navigate('/login')
+  useEffect(() => {
+    console.log("Auth ",auth)
+    if (!auth.isLoggedIn) {
+      console.log(auth);
+      navigate("/login");
     }
-  },[auth,navigate])
-  
-    console.log(auth)
+  }, [auth, navigate]);
 
-    return children
-}
+  console.log(auth);
 
-export default ProtectedRoute
+  return <Outlet/>;
+};
+
+export default ProtectedRoute;
