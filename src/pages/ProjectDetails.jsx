@@ -43,13 +43,12 @@ const ProjectDetails = () => {
 
   return (
     <div className="p-9 h-full ">
-      <div className="h-full page-flex overflow-scroll">
+      <div className="h-full page-flex overflow-y-scroll no-scrollbar">
         <div className="flex justify-between">
             <h2 className="section-head">Description</h2>
             <span className="button-secondary-light hover:text-neutral-950 hover:border-neutral-950 text-center"><NavLink to={`${location.pathname}/edit`}>Edit</NavLink></span>
         </div>
         <div>
-          <h2 className="section-head">Description</h2>
           <p className="card">{project.description}</p>
         </div>
 

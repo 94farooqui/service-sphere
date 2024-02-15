@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "./../../public/assets/logo.png";
-import { loginUser } from "../helpers/authHelper";
+import { AuthContext } from "../context/AuthProvider";
+//import { loginUser } from "../helpers/authHelper";
 
 const Login = () => {
+  const {login} = useContext(AuthContext)
     const navigate = useNavigate();
     const [user,setUser] = useState()
     const [error,setError] = useState('')
@@ -14,7 +16,7 @@ const Login = () => {
 
     const onLogin = (e) => {
         e.preventDefault();
-        const result = loginUser(user)
+        const result = login(user)
         if(result){
             navigate('/')
         }

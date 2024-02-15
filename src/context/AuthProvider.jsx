@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { createContext, useState, useEffect } from 'react';
-import { verifyToken } from '../helpers/authHelper';
+
+const serverUrl = 'http://localhost:9000';
 
 const AuthContext = createContext(null);
 
@@ -11,45 +12,48 @@ const AuthProvider = ({ children }) => {
   });
 
   useEffect(()=>{
-    const token = localStorage.getItem('jwtToken');
-    if (token) {
-      try {
-        console.log("trying to fetch")
-        fetch('http://localhost:9000/auth/verifyToken',{
-          method: 'POST',
-          headers:{
-            'Content-Type':'application/json',
-          },
-          body: JSON.stringify({token})
-        }).then(response => response.json())
-        .then(data => {
-          console.log("After fetching token: ", data)
-          if(data.email){
-            setAuth({ isLoggedIn: true, user: data.email })
-          }
-          else {
-            clearToken(); // Remove invalid token from localStorage
-          }
-        })
-      } catch (error) {
-        console.error('Error parsing or validating JWT:', error);
-      }
-    }
     
   },[])
     
-  const login = async (credentials) => {
+  // const login = async (credentials) => {
     
-  };
+  // };
+
+  const login = async (user) => {
+    console.log(user)
+    const response = await axios.post(`${serverUrl}/auth/login`, user)
+    console.log(response)
+    if(response.status == 200){
+      console.log("Received token",  response.data.token)
+      verifyToken(response.data.token)
+        localStorage.setItem("jwtToken", response.data.token)
+        return true
+    }
+    return false
+}
 
   const logout = () => {
     localStorage.removeItem('jwtToken');
+    setAuth({
+      isLoggedIn: false,
+      user: null,
+    })
   };
+
+  const verifyToken = async (mytoken='jwtToken') => {
+    //console.log(token)
+    const token = localStorage.getItem(mytoken);
+    const res = await axios.post(`${serverUrl}/auth/verifyToken`,{token})
+    if(res.status == 200){
+        //console.log(res)
+        setAuth({ isLoggedIn: true, user: res.data.email })
+    }
+}
 
 //   // Add other functions as needed (e.g., checking roles, refreshing token)
 
   return (
-    <AuthContext.Provider value={{auth, login, logout}}>
+    <AuthContext.Provider value={{auth, login, logout,verifyToken}}>
       {children}
     </AuthContext.Provider>
   );
