@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "./../../public/assets/logo.png";
 import { loginUser } from "../helpers/authHelper";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/auth/authSlice";
 
 
 const Login = () => {
@@ -9,6 +11,7 @@ const Login = () => {
     const navigate = useNavigate();
     const [user,setUser] = useState()
     const [error,setError] = useState('')
+    const dispatch = useDispatch()
 
     const onInputchange = (e) => {
         setUser({...user, [e.target.name]:e.target.value})
@@ -18,6 +21,7 @@ const Login = () => {
         e.preventDefault();
         const result = loginUser(user)
         if(result){
+        dispatch(login())
             navigate('/')
         }
     }

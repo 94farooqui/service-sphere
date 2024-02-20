@@ -22,7 +22,8 @@ import ProjectDetails from "./pages/ProjectDetails";
 import NewDomain from "./pages/NewDomain";
 import EditProjectDetails from "./pages/EditProjectDetails";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoading } from "./redux/auth/authSlice";
+import { setLoading, login, logout } from "./redux/auth/authSlice";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 export default function App() {
 
@@ -30,11 +31,26 @@ export default function App() {
   const auth = useSelector((state)=>state.auth)
 
   useEffect(()=>{
-    dispatch(setLoading(true))
-    console.log("Setting loading to true",auth)
-    const token = localStorage.getItem("jwtToken")
+    console.log("From App")
+   console.log(auth)
 
-  })
+   const checkToken =  ()=>{
+    const token = localStorage.getItem("jwtToken")
+    if(token){
+      dispatch(login())
+      console.log(auth, "I have token")
+    }
+    else {
+      dispatch(logout())
+      console.log(auth)
+      console.log(auth, "I dont have token")
+    }
+   }
+
+   checkToken()
+  
+    
+  },[])
   const router = createBrowserRouter([
     {
       path:'/',
@@ -70,27 +86,32 @@ export default function App() {
         },
 
         {
-          path: "/settings",
-          children: [
-            {index:true, element: <Settings />},
+          element: <ProtectedRoute />,
+          children:[
             {
-              path: "projects/new",
-              element: <NewProject />,
-            },
-            {
-              path: "projects/:id",
-              element: <ProjectDetails />,
-            },
-            {
-              path: "projects/:id/edit",
-              element: <EditProjectDetails />,
-            },
-            {
-              path: "domains/new",
-              element: <NewDomain />,
+              path: "/settings",
+              children: [
+                {index:true, element: <Settings />},
+                {
+                  path: "projects/new",
+                  element: <NewProject />,
+                },
+                {
+                  path: "projects/:id",
+                  element: <ProjectDetails />,
+                },
+                {
+                  path: "projects/:id/edit",
+                  element: <EditProjectDetails />,
+                },
+                {
+                  path: "domains/new",
+                  element: <NewDomain />,
+                },
+              ]
             },
           ]
-        },
+        }
       ],
     },
     {

@@ -6,34 +6,26 @@ import ProjectsList from "../components/ProjectsList";
 import ProjectSettings from "../components/Settings/ProjectSettings";
 import DomainSettings from "../components/Settings/DomainSettings";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading, login, logout } from "../redux/auth/authSlice";
 
 const Settings = () => {
-  const auth = useSelector((state)=>state.auth)
+  const dispatch = useDispatch()
   const navigate = useNavigate()
-  const user = useLoaderData()
-
-  // useEffect(()=>{
-    
-  //   if(!user){
-  //     console.log("User:",user)
-  //     navigate('/login')
-  //   }
-  // },[user])
+  const auth = useSelector((state) => (state.auth))
   useEffect(()=>{
-    console.log(auth)
-  },[])
+    console.log("From Settings")
+    if(!auth.isAuthenticated) navigate('/login')
+  },[auth.isAuthenticated, navigate])
 
-  if(auth.isLoading) return <Navigate to='/login' />
-
-  return (
+  return auth.isAuthenticated ? (
     <div className="p-8">
       <div className="page-flex">
         <ProjectSettings />
         <DomainSettings />
       </div>
     </div>
-  );
+  ) : <div><h2>Loading...</h2></div> 
 };
 
 export default Settings;
