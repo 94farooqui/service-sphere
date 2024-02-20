@@ -8,7 +8,7 @@ import PageNotFound from "./pages/PageNotFound";
 import AllBugs from "./pages/AllBugs";
 import BugsMe from "./pages/BugsMe";
 import Archive from "./pages/Archive";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import HeaderContext from "./context/HeaderContext";
 import { HeaderContextProvider } from "./context/HeaderContext";
 import NewBug from "./pages/NewBug";
@@ -21,69 +21,76 @@ import NewProject from "./pages/NewProject";
 import ProjectDetails from "./pages/ProjectDetails";
 import NewDomain from "./pages/NewDomain";
 import EditProjectDetails from "./pages/EditProjectDetails";
-import ProtectedRoute from "./components/ProtectedRoute";
-import { AuthProvider } from "./context/AuthProvider";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading } from "./redux/auth/authSlice";
 
 export default function App() {
+
+  const dispatch = useDispatch()
+  const auth = useSelector((state)=>state.auth)
+
+  useEffect(()=>{
+    dispatch(setLoading(true))
+    console.log("Setting loading to true",auth)
+    const token = localStorage.getItem("jwtToken")
+
+  })
   const router = createBrowserRouter([
     {
+      path:'/',
       element: <Layout />,
       errorElement: <PageNotFound />,
       children: [
         {
-          path: "/",
-          element: <Home />,
+          index:true, element: <Home />,
         },
         {
-          path: "/profile/:id",
+          path: "profile/:id",
           element: <Profile />,
         },
         {
-          path: "/bugs",
+          path: "bugs",
           element: <AllBugs />,
         },
         {
-          path: "/bugs/:id",
+          path: "bugs/:id",
           element: <BugDetails />,
         },
         {
-          path: "/me",
+          path: "me",
           element: <BugsMe />,
         },
         {
-          path: "/archive",
+          path: "archive",
           element: <Archive />,
         },
         {
-          path: "/new-bug",
+          path: "new-bug",
           element: <NewBug />,
         },
 
         {
-          element: <ProtectedRoute/>,
+          path: "/settings",
           children: [
+            {index:true, element: <Settings />},
             {
-              path: "/settings",
-              element: <Settings />,
-            },
-            {
-              path: "/settings/projects/new",
+              path: "projects/new",
               element: <NewProject />,
             },
             {
-              path: "/settings/projects/:id",
+              path: "projects/:id",
               element: <ProjectDetails />,
             },
             {
-              path: "/settings/projects/:id/edit",
+              path: "projects/:id/edit",
               element: <EditProjectDetails />,
             },
             {
-              path: "/settings/domains/new",
+              path: "domains/new",
               element: <NewDomain />,
             },
           ]
-        }
+        },
       ],
     },
     {
@@ -102,9 +109,7 @@ export default function App() {
   ]);
   return (
     <HeaderContextProvider>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
+      <RouterProvider router={router} />
     </HeaderContextProvider>
   );
 }
