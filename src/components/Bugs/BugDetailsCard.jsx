@@ -25,6 +25,7 @@ const BugDetailsCard = ({ id }) => {
   const [bugDetails, setBugDetails] = useState(bug);
 
   const onsubmit = async (e) => {
+    console.log(bugDetails)
     const response = await updateBug(bugDetails);
   };
 

@@ -14,7 +14,7 @@ const Settings = () => {
   const navigate = useNavigate()
   const auth = useSelector((state) => (state.auth))
   useEffect(()=>{
-    console.log("From Settings")
+   
     if(!auth.isAuthenticated) navigate('/login')
   },[auth.isAuthenticated, navigate])
 

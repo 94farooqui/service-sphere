@@ -22,8 +22,9 @@ import ProjectDetails from "./pages/ProjectDetails";
 import NewDomain from "./pages/NewDomain";
 import EditProjectDetails from "./pages/EditProjectDetails";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoading, login, logout } from "./redux/auth/authSlice";
+import { setLoading, login, logout, setUser } from "./redux/auth/authSlice";
 import ProtectedRoute from "./pages/ProtectedRoute";
+import axios from "axios";
 
 export default function App() {
 
@@ -31,14 +32,15 @@ export default function App() {
   const auth = useSelector((state)=>state.auth)
 
   useEffect(()=>{
-    console.log("From App")
-   console.log(auth)
-
-   const checkToken =  ()=>{
+  
+   const checkToken = async ()=>{
     const token = localStorage.getItem("jwtToken")
     if(token){
       dispatch(login())
-      console.log(auth, "I have token")
+      const user = await axios.post('http://localhost:9000/auth//verifyToken',{token:token})
+      if(user){
+        dispatch(setUser(user.data))
+      }
     }
     else {
       dispatch(logout())
@@ -128,6 +130,8 @@ export default function App() {
       ],
     },
   ]);
+
+  if(auth.isLoading) return <div><h2>Loading...</h2></div>
   return (
     <HeaderContextProvider>
       <RouterProvider router={router} />

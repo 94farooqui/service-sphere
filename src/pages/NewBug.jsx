@@ -4,6 +4,8 @@ import HeaderContext from "../context/HeaderContext";
 import { bugs } from "../../data";
 import { addingBug } from "./../helpers/bugHelper.js";
 import { getAllProjects } from "../helpers/projectHelper.js";
+import { bugTypes} from './../../data.js'
+import {priority} from './../../data.js'
 
 const initialBugValues = {
   name: "",
@@ -73,26 +75,73 @@ const bug = () => {
               value={bug.description}
             />
           </div>
-          <div className="flex flex-col gap-1">
-            <label className="input-label-style">Project</label>
-            <select
-              className="input-style"
-              id="project"
-              name="project"
-              onChange={(e) => onValueChange(e)}
-              value={bug.project}
-            >
-              {allProjects ? (
-                allProjects.map((project) => (
-                  <option key={project._id} value={project.name}>
-                    {project.name}
-                  </option>
-                ))
-              ) : (
-                <option>No Project</option>
-              )}
-            </select>
+          <div className="flex gap-8">
+            <div className="flex flex-col gap-1 flex-1">
+              <label className="input-label-style">Project</label>
+              <select
+                className="input-style "
+                id="project"
+                name="project"
+                onChange={(e) => onValueChange(e)}
+                value={bug.project}
+              >
+                {allProjects ? (
+                  allProjects.map((project) => (
+                    <option key={project._id} value={project.name}>
+                      {project.name}
+                    </option>
+                  ))
+                ) : (
+                  <option>No Project</option>
+                )} 
+              </select>
+            </div>
+
+            
+
+
+            <div className="flex flex-col gap-1  flex-1">
+              <label className="input-label-style">Priority</label>
+              <select
+                className="input-style"
+                id="priority"
+                name="priority"
+                onChange={(e) => onValueChange(e)}
+                value={bug.project}
+              >
+                {priority ? (
+                  priority.map((p) => (
+                    <option key={p.name} value={p.label}>
+                      {p.label}
+                    </option>
+                  ))
+                ) : (
+                  <option>No Project</option>
+                )}
+              </select>
+            </div>
+            <div className="flex flex-col gap-1  flex-1">
+              <label className="input-label-style">Bug type</label>
+              <select
+                className="input-style"
+                id="type"
+                name="type"
+                onChange={(e) => onValueChange(e)}
+                value={bug.project}
+              >
+                {bugTypes ? (
+                  bugTypes.map((type) => (
+                    <option key={type.name} value={type.label}>
+                      {type.label}
+                    </option>
+                  ))
+                ) : (
+                  <option>No Project</option>
+                )}
+              </select>
+            </div>
           </div>
+
           <div className="self-end flex gap-2 mt-4">
             <button className="button-secondary" onClick={() => navigate(-1)}>
               Cancel

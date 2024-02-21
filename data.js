@@ -385,3 +385,48 @@ export const bugs = [
     }
   ]
 
+  export const bugTypes = [
+    {
+      name: "system-bugs",
+      label: "System"
+    },
+    {
+      name: "network-bugs",
+      label: "Network"
+    },
+    {
+      name: "uiux-bugs",
+      label: "UI/UX"
+    },
+    {
+      name: "database-bugs",
+      label: "Database"
+    },
+    {
+      name: "logic-bugs",
+      label: "Logic"
+    },
+    {
+      name: "server-bugs",
+      label: "Server"
+    }
+  ]
+
+  export const priority = [
+    {
+      name: "low",
+      label: "Low"
+    },
+    {
+      name: "medium",
+      label: "Medium"
+    },
+    {
+      name: "high",
+      label: "High"
+    },
+    {
+      name: "critical",
+      label: "Critical"
+    },
+  ]
