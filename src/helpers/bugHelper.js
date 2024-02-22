@@ -54,6 +54,11 @@ export const getBug = async (id) => {
 }
 
 export const updateBug = async (bug) => {
-    console.log("Bug ID",bug)
-    const response = await axios.put(`${serverUrl}/bugs/${bug.id}`, bug)
+    console.log(bug)
+    const response = await axios.put(`${serverUrl}/bugs/${bug._id}`, bug)
+    if(response.data && response.status === 200){
+        console.log(response.data)
+        return true
+    }
+    else return false
 }
