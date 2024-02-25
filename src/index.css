@@ -66,3 +66,7 @@
       }
     }
   } 
+
+  .card-1-bg{
+    @apply bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700
+  }

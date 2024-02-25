@@ -27,9 +27,10 @@ export const addingBug = async (bug) => {
     
 }
 
-export const getAllBugs = async () => {
+export const getAllBugs = async (query) => {
+    console.log(query)
     try{
-        const response = await axios.get(`${serverUrl}/bugs`);
+        const response = await axios.get(`${serverUrl}/bugs${query}`);
         if(response.status === 200){
             return response.data
         }

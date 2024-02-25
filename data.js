@@ -434,3 +434,12 @@ export const bugs = [
       label: "Critical"
     },
   ]
+  
+
+  export const cardColors = [
+    {color:"radial-gradient(circle at 10% 20%, rgb(221, 49, 49) 0%, rgb(119, 0, 0) 90%)"},
+    {color:"radial-gradient(circle at 10% 20%, rgb(21, 120, 186) 0%, rgb(13, 71, 110) 90%)"},
+    {color:"radial-gradient(circle at 10% 20%, rgb(54, 176, 91) 0%, rgb(34, 107, 56) 90%)"},
+    {color:"radial-gradient(circle at 10% 20%, rgb(12, 178, 185) 0%, rgb(7, 123, 127) 90%)"},
+    {color:"radial-gradient(circle at 10% 20%, rgb(115, 17, 195) 0%, rgb(81, 13, 137) 90%)"}
+  ]

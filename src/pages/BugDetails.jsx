@@ -12,8 +12,11 @@ import BugAssigneeCard from "../components/Bugs/BugAssigneeCard";
 import BugPropertiesCard from "../components/Bugs/BugPropertiesCard";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useToast } from '@chakra-ui/react'
+
 
 const BugDetails = () => {
+  const toast = useToast()
   const params = useParams();
   const id = params.id
   const [bugDetails, setBugDetails] = useState(null);
@@ -28,7 +31,14 @@ const BugDetails = () => {
     //console.log(bugDetails)
     const response = await updateBug(bugDetails);
     if(response){
-      toast("Updated Successfully");
+      // toast("Updated Successfully");
+      toast({
+        title: `Bug ${bug.name}`,
+        description: `Successfully updated`,
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      })
     }
   };
 
