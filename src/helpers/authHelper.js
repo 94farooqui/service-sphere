@@ -18,7 +18,7 @@ const loginUser = async (user) => {
     console.log(response)
     if(response.status == 200){
         localStorage.setItem("jwtToken", response.data.token)
-        return {status :true, user: response.data.email}
+        return {status :true}
     }
     return false
 }

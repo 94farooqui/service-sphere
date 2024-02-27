@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Layout from "./Layout/Layout";
@@ -132,6 +132,7 @@ export default function App() {
   ]);
 
   if(auth.isLoading) return <div><h2>Loading...</h2></div>
+
   return (
     <HeaderContextProvider>
       <RouterProvider router={router} />

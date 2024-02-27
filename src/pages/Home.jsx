@@ -3,10 +3,16 @@ import { dashboardTiles } from "./../../data";
 import DashCard from "../components/Dashboard/DashCard";
 import HeaderContext from "../context/HeaderContext";
 import {cardColors} from './../../data'
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const {headerText,setHeaderText} = useContext(HeaderContext)
+  const navigate = useNavigate()
   useEffect(()=>{
+    const token = localStorage.getItem("jwtToken")
+    if(!token){
+      navigate('/login')
+    }
     setHeaderText("Home")
   },[])
   return (

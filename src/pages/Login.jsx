@@ -17,10 +17,10 @@ const Login = () => {
         setUser({...user, [e.target.name]:e.target.value})
     }
 
-    const onLogin = (e) => {
+    const onLogin = async (e) => {
         e.preventDefault();
-        const result = loginUser(user)
-        if(result){
+        const result = await loginUser(user)
+        if(result.status){
         dispatch(login())
             navigate('/')
         }

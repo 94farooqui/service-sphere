@@ -28,9 +28,15 @@ export const addingBug = async (bug) => {
 }
 
 export const getAllBugs = async (query) => {
+    const token = localStorage.getItem("jwtToken")
+
     console.log(query)
     try{
-        const response = await axios.get(`${serverUrl}/bugs${query}`);
+        const response = await axios.get(`${serverUrl}/bugs${query}`,{
+            headers:{
+                authorization: `Bearer ${token}`
+            }
+        });
         if(response.status === 200){
             return response.data
         }
